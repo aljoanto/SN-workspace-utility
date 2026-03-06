@@ -19,7 +19,7 @@ View Attachment button
 
 ## Architecture
 
-![Architecture](Docs/1DE746BA-1787-4A4B-9784-3E2BD636CC32.png)
+![Architecture]([Docs/1DE746BA-1787-4A4B-9784-3E2BD636CC32.png](https://github.com/aljoanto/SN-workspace-utility/blob/54dfb2a4507786349da1922f201301c84bd0bcec/Docs/1DE746BA-1787-4A4B-9784-3E2BD636CC32.png))
 
 ## Version
 Tested on ServiceNow Zurich
