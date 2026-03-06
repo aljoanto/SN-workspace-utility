@@ -43,7 +43,7 @@ View Attachment button
 
 ## Demo
 
-![Demo}(Docs/IMB_BkDHYs.gif)
+![Demo](Docs/IMB_BkDHYs.gif)
 
 ## Version
 Tested on ServiceNow Zurich
