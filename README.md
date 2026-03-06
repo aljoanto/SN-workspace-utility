@@ -34,5 +34,26 @@ Catalog Tasks (sc_task)
 ↓  
 Attachments (sys_attachment)
 
+## Features
+
+• Retrieves attachments from all associated catalog tasks
+• Displays attachments in Workspace modal
+• Shows file name, content type, and size
+• Direct download links
+• Handles cases with no tasks or no attachments
+• Error handling for failed API calls
+
+## Installation
+
+1. Clone the repository
+2. Open ServiceNow Studio
+3. Link the application to this GitHub repository
+4. Pull the latest version
+5. Publish the REST API
+6. Add the Workspace utility to the desired page
+
+## Demo
+
+
 ## Version
 Tested on ServiceNow Zurich
