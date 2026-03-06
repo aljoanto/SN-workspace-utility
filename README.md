@@ -15,24 +15,13 @@ This solution allows users to view attachments from Catalog Tasks associated wit
 
 Script Include  
 TaskAttachmentHelper
-
 Scripted REST API  
-task_attachment_api
-
 Workspace Declarative Action  
 View Attachment button
 
 ## Architecture
 
-Workspace Client Script  
-↓  
-Scripted REST API  
-↓  
-Script Include  
-↓  
-Catalog Tasks (sc_task)  
-↓  
-Attachments (sys_attachment)
+![Architecture](Docs/1DE746BA-1787-4A4B-9784-3E2BD636CC32.png)
 
 ## Features
 
