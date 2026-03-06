@@ -19,15 +19,7 @@ View Attachment button
 
 ## Architecture
 
-Workspace Client Script  
-↓  
-Scripted REST API  
-↓  
-Script Include  
-↓  
-Catalog Tasks (sc_task)  
-↓  
-Attachments (sys_attachment)
+![Architecture](Docs/1DE746BA-1787-4A4B-9784-3E2BD636CC32.png)
 
 ## Version
 Tested on ServiceNow Zurich
