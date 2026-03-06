@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl/>
+        <http_method>GET</http_method>
+        <name>Get Attachments</name>
+        <operation_script><![CDATA[/**
+ * Scripted REST API Resource: Get Attachments for Requested Item Tasks
+ *
+ * Purpose:
+ * This REST API endpoint retrieves attachments from all Catalog Tasks (sc_task)
+ * associated with a given Requested Item (RITM).
+ *
+ * How it works:
+ * 1. Accepts a Requested Item sys_id (ritm_sys_id) as a query parameter.
+ * 2. Validates that the parameter is provided.
+ * 3. Calls the Script Include 'TaskAttachmentHelper' to fetch attachments
+ *    from tasks linked to the specified RITM.
+ * 4. Returns a structured response containing task presence and attachment details.
+ * 5. Handles invalid input and unexpected errors with appropriate HTTP status codes.
+ *
+ * Inputs:
+ * - request.queryParams.ritm_sys_id (String)
+ *   The sys_id of the Requested Item whose task attachments need to be retrieved.
+ *
+ * Outputs:
+ * - Success Response (200):
+ *   Object returned from TaskAttachmentHelper containing:
+ *     - hasTasks (Boolean): Indicates if associated tasks exist
+ *     - attachments (Array): List of attachment metadata
+ *
+ * - Error Responses:
+ *     - 400: Missing ritm_sys_id parameter
+ *     - 500: Unexpected server-side error
+ *
+ * Notes:
+ * - Designed for use by ServiceNow Workspace client scripts via fetch API.
+ * - Authentication and role restrictions should be enforced at the Scripted REST API level.
+ */
+
+(function process( /*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+    try {
+
+        // Extract the RITM sys_id from query parameters.
+        // Ensures the value is treated as a string and trims any accidental whitespace.
+        var ritmSysId = (request.queryParams.ritm_sys_id || '').toString().trim();
+
+        // Validate input parameter.
+        // If ritm_sys_id is not provided, return HTTP 400 (Bad Request).
+        if (!ritmSysId) {
+            response.setStatus(400);
+            return {
+                error: "ritm_sys_id is required"
+            };
+        }
+
+        // Instantiate the helper class responsible for retrieving
+        // task-related attachment information.
+        var helper = new TaskAttachmentHelper();
+
+        // Delegate the core logic to the Script Include.
+        // This keeps the REST resource lightweight and focused on request handling.
+        return helper.getTaskAttachments(ritmSysId);
+
+    } catch (e) {
+
+        // Catch any unexpected server-side errors to prevent
+        // internal exception details from being exposed to the client.
+        response.setStatus(500);
+
+        return {
+            error: "Unexpected server error"
+        };
+    }
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_1631815_worksp_0/task_attachment_api/get_attachments</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/get_attachments</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>false</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-05 14:57:32</sys_created_on>
+        <sys_id>87f5a73b9317f610581bf527dd03d6f4</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>Get Attachments</sys_name>
+        <sys_package display_value="Workspace Utility" source="x_1631815_worksp_0">096ed37b93d3f610581bf527dd03d6bf</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Workspace Utility">096ed37b93d3f610581bf527dd03d6bf</sys_scope>
+        <sys_update_name>sys_ws_operation_87f5a73b9317f610581bf527dd03d6f4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-06 04:02:06</sys_updated_on>
+        <web_service_definition display_value="Task Attachment API">cdf1eb339317f610581bf527dd03d638</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>

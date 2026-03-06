@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_db_object">
+    <sys_db_object action="INSERT_OR_UPDATE">
+        <access/>
+        <actions_access>true</actions_access>
+        <alter_access>true</alter_access>
+        <caller_access/>
+        <client_scripts_access>true</client_scripts_access>
+        <configuration_access>false</configuration_access>
+        <create_access>true</create_access>
+        <create_access_controls>false</create_access_controls>
+        <delete_access>true</delete_access>
+        <filter_extension/>
+        <is_df_table>false</is_df_table>
+        <is_extendable>false</is_extendable>
+        <label>Workspace Utility Request</label>
+        <live_feed_enabled>false</live_feed_enabled>
+        <name>x_1631815_worksp_0_request</name>
+        <number_ref/>
+        <provider_class/>
+        <read_access>true</read_access>
+        <scriptable_table>false</scriptable_table>
+        <super_class display_value="Request Task" name="sn_creatorstudio_task">c88d08ae93573210581bf527dd03d682</super_class>
+        <sys_class_name>sys_db_object</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-05 14:14:04</sys_created_on>
+        <sys_id>116ed37b93d3f610581bf527dd03d6d2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Worksp 0 Request</sys_name>
+        <sys_package display_value="Workspace Utility" source="x_1631815_worksp_0">096ed37b93d3f610581bf527dd03d6bf</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Workspace Utility">096ed37b93d3f610581bf527dd03d6bf</sys_scope>
+        <sys_update_name>sys_db_object_116ed37b93d3f610581bf527dd03d6d2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-05 14:14:04</sys_updated_on>
+        <update_access>true</update_access>
+        <user_role/>
+        <ws_access>true</ws_access>
+    </sys_db_object>
+</record_update>

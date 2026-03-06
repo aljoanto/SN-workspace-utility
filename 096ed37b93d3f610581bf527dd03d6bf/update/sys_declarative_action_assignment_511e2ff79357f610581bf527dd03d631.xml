@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_declarative_action_assignment">
+    <sys_declarative_action_assignment action="INSERT_OR_UPDATE">
+        <action/>
+        <action_attributes/>
+        <action_name>view_task_attachment</action_name>
+        <action_payload/>
+        <action_type>type</action_type>
+        <active>true</active>
+        <animate_icon>false</animate_icon>
+        <button_position>right</button_position>
+        <button_type>primary</button_type>
+        <client_action/>
+        <client_conditions/>
+        <client_conditions_on_fields/>
+        <client_script><![CDATA[/**
+ * Declarative Action Client Script
+ * Fetches attachments from tasks linked to the current RITM
+ * and displays them in a modal.
+ */
+async function onClick() {
+
+    /** Get current Requested Item sys_id */
+    const ritmID = g_form.getUniqueValue();
+
+    const apiEndPoint = '/api/x_1631815_worksp_0/task_attachment_api/get_attachments';
+
+    /** Call Scripted REST API to retrieve task attachments */
+    const response = await fetch(apiEndPoint + '?ritm_sys_id=' + ritmID);
+
+    /** Handle REST API failure and notify user */
+    if (!response.ok) {
+        g_modal.richText('Error', '<p>Unable to retrieve attachments.</p>');
+        return;
+    }
+
+    /** Parse API response */
+    const data = await response.json();
+
+    if (!data || !data.result) {
+        g_modal.richText('Error', '<p>Invalid response received.</p>');
+        return;
+    }
+
+    /** HTML content to render inside modal */
+    let content = '';
+
+    /** Show message if no tasks exist for the RITM */
+    if (!(data.result.hasTasks)) {
+        content += '<p>No associated tasks found.</p>';
+
+        /** Show message if tasks exist but have no attachments */
+    } else if (data.result.attachments.length === 0) {
+        content += '<p>No attachments found on associated tasks.</p>';
+
+    } else {
+
+        /** Build attachments table */
+        content += `<table style="width:100%;max-height:400px border-collapse:collapse;"><thead>
+        <tr style="background:#f4f6f8;">
+        <th style="padding:8px; text-align:left;">File Name</th>
+        <th style="padding:8px; text-align:left;">Content Type</th>
+        <th style="padding:8px; text-align:left;">File Size</th>
+        <th style="padding:8px; text-align:left;">Download</th>
+        </tr></thead>
+        <tbody>`;
+
+        /** Populate rows for each attachment */
+        data.result.attachments.forEach(att => {
+
+            /** Convert size from bytes to MB */
+            const fileSize = (att.size_bytes / (1024 * 1024)).toFixed(2);
+
+            content += `<tr><td style="padding:8px;"> ${att.file_name}</td>
+            <td style="padding:8px;"> ${att.content_type}</td>
+            <td style="padding:8px;">${fileSize}</td>
+            <td style="padding:8px;">
+                    <a href="${att.download_link}" target="_blank">
+                        ${att.file_name}
+                    </a>
+                </td>
+                </tr>
+            `;
+        });
+
+        content += '</tbody></table>';
+    }
+
+    /** Render results in Workspace modal */
+    g_modal.richText('Task Attachments', content, function(action_verb) {}, {
+        size: 'lg',
+    });
+}]]></client_script>
+        <confirmation_message/>
+        <confirmation_required>false</confirmation_required>
+        <create_access>false</create_access>
+        <declarative_action_render_mode/>
+        <declarative_action_type>client_script</declarative_action_type>
+        <delete_access>false</delete_access>
+        <dependency/>
+        <description>Retrieves attachments from all Catalog Tasks associated with the Requested Item and displays them in a Workspace modal.</description>
+        <design_icon/>
+        <dynamic_record_condition/>
+        <dynamic_script_condition/>
+        <enable_dynamic_evaluation>false</enable_dynamic_evaluation>
+        <enable_for_all_experiences>true</enable_for_all_experiences>
+        <enabled>true</enabled>
+        <experience_restricted>false</experience_restricted>
+        <field_name/>
+        <field_type>glide_date</field_type>
+        <form_fields_required>false</form_fields_required>
+        <form_position>action_bar</form_position>
+        <group/>
+        <group_by>false</group_by>
+        <icon/>
+        <label>Coe</label>
+        <model display_value="Form">360935e9534723003eddddeeff7b127d</model>
+        <model_conditions/>
+        <model_field_required/>
+        <order>10</order>
+        <payload_map/>
+        <read_access>false</read_access>
+        <record_conditions/>
+        <record_selection_required>false</record_selection_required>
+        <required_roles/>
+        <required_translations/>
+        <required_user_role_names/>
+        <requires_value>false</requires_value>
+        <script_condition/>
+        <scripted_client_condition/>
+        <server_script/>
+        <specificity>21</specificity>
+        <sys_class_name>sys_declarative_action_assignment</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-05 15:25:15</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>511e2ff79357f610581bf527dd03d631</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>view_task_attachment</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Workspace Utility" source="x_1631815_worksp_0">096ed37b93d3f610581bf527dd03d6bf</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Workspace Utility">096ed37b93d3f610581bf527dd03d6bf</sys_scope>
+        <sys_update_name>sys_declarative_action_assignment_511e2ff79357f610581bf527dd03d631</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-06 04:16:06</sys_updated_on>
+        <table>sc_req_item</table>
+        <tooltip/>
+        <ui_component/>
+        <view/>
+        <workspace/>
+        <write_access>false</write_access>
+    </sys_declarative_action_assignment>
+    <sys_translated_text action="delete_multiple" query="documentkey=511e2ff79357f610581bf527dd03d631"/>
+</record_update>

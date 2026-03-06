@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role_contains">
+    <sys_user_role_contains action="INSERT_OR_UPDATE">
+        <contains display_value="sn_creatorstudio.basic_fulfiller" name="sn_creatorstudio.basic_fulfiller">13a86cffc76042102208c8d6f2c260a3</contains>
+        <role display_value="x_1631815_worksp_0.agent" name="x_1631815_worksp_0.agent">0a6e577b93d3f610581bf527dd03d6c7</role>
+        <sys_class_name>sys_user_role_contains</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-05 14:14:09</sys_created_on>
+        <sys_id>de6e977b93d3f610581bf527dd03d616</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>sn_creatorstudio.basic_fulfiller.x_1631815_worksp_0.agent</sys_name>
+        <sys_package display_value="Workspace Utility" source="x_1631815_worksp_0">096ed37b93d3f610581bf527dd03d6bf</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Workspace Utility">096ed37b93d3f610581bf527dd03d6bf</sys_scope>
+        <sys_update_name>sys_user_role_contains_de6e977b93d3f610581bf527dd03d616</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-05 14:14:09</sys_updated_on>
+    </sys_user_role_contains>
+</record_update>

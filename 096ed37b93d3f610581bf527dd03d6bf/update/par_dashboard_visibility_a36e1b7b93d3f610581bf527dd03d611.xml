@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_visibility">
+    <par_dashboard_visibility action="INSERT_OR_UPDATE">
+        <dashboard display_value="Workspace Utility Requests">6a6e977b93d3f610581bf527dd03d679</dashboard>
+        <experience display_value="Request App Workspace">53ba520177d2311055f78f71ef5a99e8</experience>
+        <sys_class_name>par_dashboard_visibility</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-03-05 14:14:14</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>a36e1b7b93d3f610581bf527dd03d611</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package display_value="Workspace Utility" source="x_1631815_worksp_0">096ed37b93d3f610581bf527dd03d6bf</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Workspace Utility">096ed37b93d3f610581bf527dd03d6bf</sys_scope>
+        <sys_update_name>par_dashboard_visibility_a36e1b7b93d3f610581bf527dd03d611</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-03-05 14:14:14</sys_updated_on>
+    </par_dashboard_visibility>
+</record_update>
